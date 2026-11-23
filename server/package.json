@@ -1,0 +1,38 @@
+{
+  "name": "server",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "typecheck": "bun check",
+    "dev": "bun --watch index.ts",
+    "dev:worker": "bun --watch worker.ts"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/cors": "^2.8.19"
+  },
+  "peerDependencies": {
+    "typescript": "^7"
+  },
+  "dependencies": {
+    "@langchain/community": "^1.1.29",
+    "@langchain/core": "^1.5.0",
+    "@langchain/google": "^0.2.17",
+    "@langchain/google-genai": "^2.3.7",
+    "@langchain/qdrant": "^1.0.3",
+    "@langchain/textsplitters": "^1.0.2",
+    "@qdrant/js-client-rest": "^1.20.0",
+    "@types/express": "^5.0.6",
+    "@types/multer": "^2.3.0",
+    "@types/node": "^26.6.6",
+    "bullmq": "^6.7.8",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "ioredis": "^6.1.0",
+    "langchain": "^1.6.7",
+    "multer": "^2.5.0",
+    "pdf-parse": "^2.4.5"
+  }
+}
