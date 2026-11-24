@@ -1,3 +1,5 @@
+import dotenv from "dotenv";
+dotenv.config();
 import { Worker } from "bullmq";
 import { QdrantVectorStore } from "@langchain/qdrant";
 import { GoogleGenerativeAIEmbeddings } from "@langchain/google-genai";
@@ -7,8 +9,8 @@ import { RecursiveCharacterTextSplitter } from "@langchain/textsplitters";
 import { QdrantClient } from "@qdrant/js-client-rest";
 
 const connection = {
-  host: "localhost",
-  port: 6379,
+  host: process.env.REDIS_HOST || "localhost",
+  port: Number(process.env.REDIS_PORT) || 6379,
 };
 
 const worker = new Worker(
@@ -58,5 +60,5 @@ worker.on("failed", (job, err) => {
 });
 
 worker.on("error", (err) => {
-  console.error("Worker error:", err.message);
+  console.error("Worker error:", err);
 });
